@@ -8,10 +8,19 @@ while is_machine_on:
     order = input("What would you like? (espresso/latte/cappuccino):")
     if order == "off":
         is_machine_on = False
+
     elif order == "report":
         print(f"Water: {resources['water']}ml\nMilk: {resources['milk']}ml\nCoffee: {resources['coffee']}g \n")
-    elif order=="amount":
-        print(f"The total money cashed in the machine is {total_money}.")
+        print(f"The total money cashed in the machine is ${total_money}.")
+
+    elif order == "refill":
+        water = int((input("Enter the amount of water you wish to add:")))
+        milk = int((input("Enter the amount of milk you wish to add:")))
+        coffee = int((input("Enter the amount of coffee you wish to add:")))
+        resources['water'] += water
+        resources['milk'] += milk
+        resources['coffee'] += coffee
+        
     elif order in MENU:
         if resources["water"] >= MENU[order]["ingredients"]["water"]  and resources["milk"] >= MENU[order]["ingredients"]["milk"] and resources["coffee"] >= MENU[order]["ingredients"]["coffee"]:
             resources["water"] -= MENU[order]["ingredients"]["water"]
@@ -25,7 +34,9 @@ while is_machine_on:
             cost = 0.25*quarters + 0.1*dimes + 0.05*nickles + 0.01*pennies
             if cost > MENU[order]["cost"]:
                 change = cost - MENU[order]["cost"]
+                new_cost = cost-change
                 print(f"Here is your change: ${change:.2f}")
+                total_money += new_cost
             elif cost == MENU[order]["cost"]:
                 total_money += cost
             else:
