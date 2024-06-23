@@ -8,6 +8,8 @@ while is_machine_on:
     order = input("What would you like? (espresso/latte/cappuccino):")
     if order == "off":
         is_machine_on = False
+    elif order =="edit menu":
+        print("What item would you like to add on the menu:")
 
     elif order == "report":
         print(f"Water: {resources['water']}ml\nMilk: {resources['milk']}ml\nCoffee: {resources['coffee']}g \n")
