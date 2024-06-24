@@ -6,8 +6,9 @@ DOWN = 270
 LEFT = 180
 RIGHT = 0
 
-class Snake:
+class Snake():
     def __init__(self):
+        # super().__init__()
         self.segments = []
         self.create_snake()
         self.head = self.segments[0]
