@@ -6,7 +6,7 @@ class ScoreBoard(Turtle):
     def __init__(self):
         super().__init__()
         self.score = 0
-        with open('python-mini-games\snake-game\data.txt') as data:
+        with open('C:\\Users\\Aanshuvi Shah\\Desktop\\udemypy\\python-mini-games\\snake-game\\data.txt') as data:
             self.high_score = int(data.read())
         self.color("white")
         self.hideturtle()
@@ -25,9 +25,9 @@ class ScoreBoard(Turtle):
     def reset(self):
         if self.score > self.high_score:
             self.high_score = self.score
-            with open('python-mini-games\snake-game\data.txt',mode="w") as data:
+            with open('C:\\Users\\Aanshuvi Shah\\Desktop\\udemypy\\python-mini-games\\snake-game\\data.txt',mode="w") as data:
                 data.write(f"{self.high_score}")
-                
+        
         self.score = 0
         self.update_scoreboard()
 
